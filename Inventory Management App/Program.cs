@@ -8,11 +8,12 @@ internal class Program
         InventoryManagement inventoryManagement = new();
         inventoryManagement.CreateDatabase().Wait();
 
+        Console.WriteLine("=========================================");
+        Console.WriteLine("  Welcome to the Inventory Management App  ");
+        Console.WriteLine("=========================================");
+
         while (true)
         {
-            Console.WriteLine("=========================================");
-            Console.WriteLine("  Welcome to the Inventory Management App  ");
-            Console.WriteLine("=========================================");
             Console.WriteLine();
             Console.WriteLine("Please select an option from the menu below:");
             Console.WriteLine("-----------------------------------------");
@@ -41,18 +42,21 @@ internal class Program
                 if (!double.TryParse(Console.ReadLine(), out double price))
                 {
                     Console.WriteLine("Invalid Input");
+                    continue;
                 }
 
                 Console.WriteLine("Input quantity of item");
                 if (!int.TryParse(Console.ReadLine(), out int quantity))
                 {
                     Console.WriteLine("Invalid Input");
+                    continue;
                 }
 
                 Console.WriteLine("Input ID of item");
                 if (!int.TryParse(Console.ReadLine(), out int id))
                 {
                     Console.WriteLine("Invalid Input");
+                    continue;
                 }
 
                 var product = new Product(name, quantity, id, price);
@@ -65,14 +69,14 @@ internal class Program
                 if (!int.TryParse(Console.ReadLine(), out int id))
                 {
                     Console.WriteLine("Invalid input. Please enter a valid integer for the Item ID.");
-                    return;
+                    continue;
                 }
 
                 Console.WriteLine("Please enter the amount to add:");
                 if (!int.TryParse(Console.ReadLine(), out int amount))
                 {
                     Console.WriteLine("Invalid input. Please enter a valid integer for the amount.");
-                    return;
+                    continue;
                 }
 
                 try
@@ -91,14 +95,14 @@ internal class Program
                 if (!int.TryParse(Console.ReadLine(), out int id))
                 {
                     Console.WriteLine("Invalid input. Please enter a valid integer for the Item ID.");
-                    return;
+                    continue;
                 }
 
                 Console.WriteLine("Please enter the amount to sell:");
                 if (!int.TryParse(Console.ReadLine(), out int amount))
                 {
                     Console.WriteLine("Invalid input. Please enter a valid integer for the amount.");
-                    return;
+                    continue;
                 }
 
                 try
@@ -117,7 +121,7 @@ internal class Program
                 if (!int.TryParse(Console.ReadLine(), out int id))
                 {
                     Console.WriteLine("Invalid input. Please enter a valid integer for the Item ID.");
-                    return;
+                    continue;
                 }
 
                 Console.WriteLine("What would you like to update:");
@@ -149,6 +153,11 @@ internal class Program
                     Console.WriteLine("What the new name");
                     newName = Console.ReadLine();
                 }
+                else
+                {
+                    Console.WriteLine("That option is not available. Please try again!");
+                    continue;
+                }
 
                 try
                 {
@@ -167,7 +176,7 @@ internal class Program
                 if (!int.TryParse(Console.ReadLine(), out int id))
                 {
                     Console.WriteLine("Invalid input. Please enter a valid integer for the Item ID.");
-                    return;
+                    continue;
                 }
 
                 try
@@ -189,7 +198,7 @@ internal class Program
                 if (!int.TryParse(Console.ReadLine(), out int id))
                 {
                     Console.WriteLine("Invalid input. Please enter a valid integer for the Item ID.");
-                    return;
+                    continue;
                 }
 
                 try
@@ -205,7 +214,7 @@ internal class Program
             }
             else if (option == 7)
             {
-                Console.WriteLine("Thank you for using the Inventory App! We hope you have a wonderful day!");
+                Console.WriteLine("Thank you for using the Inventory App! Have a wonderful day!");
                 return;
             }
             else

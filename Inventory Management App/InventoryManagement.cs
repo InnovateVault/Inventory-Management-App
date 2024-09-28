@@ -117,7 +117,7 @@ internal class InventoryManagement
 
         if (itemChanged == 0)
         {
-            throw new InvalidOperationException("Account not found.");
+            throw new InvalidOperationException("Item not found.");
         }
     }
 }
